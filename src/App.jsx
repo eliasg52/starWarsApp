@@ -1,8 +1,12 @@
+import Search from './components/Search';
+import Pages from './Pages/Home';
+
 function App() {
   return (
-    <div className="App">
-      <h1>A codear 🚀</h1>
-    </div>
+    <>
+      <h1>Star Wars App</h1>
+      <Pages />
+    </>
   );
 }
 
