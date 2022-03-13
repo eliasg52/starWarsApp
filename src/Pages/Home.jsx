@@ -9,6 +9,8 @@ const Home = () => {
   const [input, setInput] = useState('');
   const [page, setPage] = useState(1);
 
+  console.log(characters.length);
+
   useEffect(() => {
     input
       ? getCharacter(setCharacters, input)
@@ -24,13 +26,15 @@ const Home = () => {
     <>
       <Search state={setInput} />
       <ul>
-        {characters?.map((character, index) => {
-          return (
-            <li key={index}>
-              <Character {...character} />
-            </li>
-          );
-        })}
+        {characters.length > 0
+          ? characters?.map((character, index) => {
+              return (
+                <li key={index}>
+                  <Character {...character} />
+                </li>
+              );
+            })
+          : 'No hay resultados'}
       </ul>
 
       {!input && (
