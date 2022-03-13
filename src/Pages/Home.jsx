@@ -25,6 +25,16 @@ const Home = () => {
   return (
     <>
       <Search state={setInput} />
+      <br />
+      <br />
+      {!input && (
+        <div>
+          <button onClick={() => pageHandler('-')}>PREV</button>
+          --{page}--
+          <button onClick={() => pageHandler('+')}>NEXT</button>
+        </div>
+      )}
+
       <ul>
         {characters.length > 0
           ? characters?.map((character, index) => {
@@ -36,14 +46,6 @@ const Home = () => {
             })
           : 'No hay resultados'}
       </ul>
-
-      {!input && (
-        <div>
-          <button onClick={() => pageHandler('-')}>PREV</button>
-          --{page}--
-          <button onClick={() => pageHandler('+')}>NEXT</button>
-        </div>
-      )}
     </>
   );
 };
